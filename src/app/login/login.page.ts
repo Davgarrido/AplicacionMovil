@@ -19,4 +19,7 @@ export class LoginPage {
       this.navCtrl.navigateForward('/home');
     }
   }
+  reestablecer(){
+    
+  }
 }
