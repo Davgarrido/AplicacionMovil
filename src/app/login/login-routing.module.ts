@@ -7,8 +7,6 @@ const routes: Routes = [
   {
     path: '',
     component: LoginPage
-  },
-  {
   }
 ];
 

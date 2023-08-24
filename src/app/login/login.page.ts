@@ -11,14 +11,15 @@ export class LoginPage {
   usuario: string = '';
   contrasena: string = '';
 
-  constructor(
-    private navCtrl: NavController, )
-  {}
+  constructor(private navCtrl: NavController) {}
 
   agregarDatos() {
     if (this.usuario.length >= 3 && this.usuario.length <= 8 && /^\d{4}$/.test(this.contrasena)) {
       HomePage.usuario = this.usuario;
       this.navCtrl.navigateForward('/home');
     }
+  }
+  reestablecer(){
+    
   }
 }
