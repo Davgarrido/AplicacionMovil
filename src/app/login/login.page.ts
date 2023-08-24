@@ -19,8 +19,7 @@ export class LoginPage {
       this.navCtrl.navigateForward('/home');
     }
   }
-  ContrasenaOlvidada(){
+  reestablecer(){
     
-
   }
 }
