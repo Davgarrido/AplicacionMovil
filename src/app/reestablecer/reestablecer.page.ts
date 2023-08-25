@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reestablecer.page.scss'],
 })
 export class ReestablecerPage implements OnInit {
+  static Usuario: string = '';
+  usuario: string = '';
+  Nueva_Contrasena: string = '';
+  Confirma_nueva_contrasena: string = '';
 
   constructor() { }
 
