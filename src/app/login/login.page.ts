@@ -18,6 +18,7 @@ export class LoginPage {
       HomePage.usuario = this.usuario;
       this.navCtrl.navigateForward('/home');
     }
+    else {alert}
   }
   reestablecer(){
     
