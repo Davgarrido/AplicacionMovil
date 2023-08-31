@@ -9,6 +9,7 @@ import { HomePage } from '../home/home.page';
 })
 export class LoginPage {
   usuario: string = '';
+  user: string | null = null;
   contrasena: string = '';
 
   constructor(private navCtrl: NavController) {}
@@ -18,6 +19,7 @@ export class LoginPage {
       HomePage.usuario = this.usuario;
       this.navCtrl.navigateForward('/home');
     }
+    else {alert}
   }
   reestablecer(){
     

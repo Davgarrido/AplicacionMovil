@@ -1,13 +1,26 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Reestablecer</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Reestablecer</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-text-center ion-align-items-center">
+  <ion-card>
+    <ion-card-title>
+      <h1>Reestablecer contraseña</h1>
+    </ion-card-title>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input [(ngModel)]="usuario"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nueva contraseña</ion-label>
+        <ion-input [(ngModel)]="Nueva_Contrasena" type="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Confirma nueva contraseña</ion-label>
+        <ion-input [(ngModel)]="Confirma_nueva_contrasena" type="password"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <div class="ion-text-center">
+  <ion-button [routerLink]="['/login']">Volver al inicio</ion-button>
+  <ion-button [routerLink]="['/']">Confirmar Contraseña</ion-button> <!--Este boton no hace nada, modificar-->
+  <ion-button (click)="Cambio_contrasena()">Confirmar</ion-button>
+  </div>
 </ion-content>
