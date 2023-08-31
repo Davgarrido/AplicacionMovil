@@ -9,6 +9,7 @@ import { HomePage } from '../home/home.page';
 })
 export class LoginPage {
   usuario: string = '';
+  user: string | null = null;
   contrasena: string = '';
 
   constructor(private navCtrl: NavController) {}
