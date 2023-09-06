@@ -1,23 +1,30 @@
-<ion-content class="ion-text-center ion-align-items-center">
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Bienvenido {{ username }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content [fullscreen]="true"  class="ion-text-center ion-align-items-center">
   <ion-card>
-    <ion-card-header>
-      <h2>Información Adicionales</h2>
-    </ion-card-header>
     <ion-card-content class="ion-label ion-align-items-center">
       <ion-item>
-        <ion-label>Nombre</ion-label>
+        <ion-label position="floating">Nombre</ion-label>
         <ion-input [(ngModel)]="nombre"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Apellido</ion-label>
+        <ion-label position="floating">Apellido</ion-label>
         <ion-input [(ngModel)]="apellido"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Nivel de Educación</ion-label>
+        <ion-label position="floating">Nivel de Educación</ion-label>
         <ion-input [(ngModel)]="nivelEducacion"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Fecha de Nacimiento</ion-label>
+        <ion-label >Fecha de Nacimiento</ion-label>
         <ion-input [(ngModel)]="fechaNacimiento" type="date"></ion-input>
       </ion-item>
     </ion-card-content>
@@ -25,7 +32,7 @@
   
   <div class="ion-text-center"> <!-- Agregamos un contenedor centrado -->
     <ion-button (click)="mostrarInformacion()">Mostrar</ion-button>
-    <br><br/>
     <ion-button (click)="limpiarCampos()">Limpiar</ion-button>
+    <ion-button [routerLink]="['/login']">Volver al inicio</ion-button>
   </div>
 </ion-content>

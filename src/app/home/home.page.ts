@@ -1,19 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
-  static usuario: string = '';
+export class HomePage implements OnInit{
+  
+  username: string | null = null;
   nombre: string = '';
   apellido: string = '';
   nivelEducacion: string = '';
   fechaNacimiento: string = '';
 
-  constructor(private alertController: AlertController) {}
+  constructor(
+    private alertController: AlertController,
+    private sharedService: SharedService
+    ) {}
 
   async mostrarInformacion() {
       const alert = await this.alertController.create({
@@ -23,6 +28,10 @@ export class HomePage {
       });
 
       await alert.present();
+  }
+
+  ngOnInit(){
+    this.username = this.sharedService.getUsername();
   }
 
   limpiarCampos() {
