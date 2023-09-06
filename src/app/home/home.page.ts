@@ -8,12 +8,12 @@ import { SharedService } from '../../services/shared.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit{
-  usuario: string | null = null;
+  
+  username: string | null = null;
   nombre: string = '';
   apellido: string = '';
   nivelEducacion: string = '';
   fechaNacimiento: string = '';
-  static usuario: string;
 
   constructor(
     private alertController: AlertController,
@@ -31,7 +31,7 @@ export class HomePage implements OnInit{
   }
 
   ngOnInit(){
-    this.usuario = this.sharedService.getUsername();
+    this.username = this.sharedService.getUsername();
   }
 
   limpiarCampos() {

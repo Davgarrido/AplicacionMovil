@@ -1,6 +1,6 @@
+import { SharedService } from './../../services/shared.service';
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { HomePage } from '../home/home.page';
 
 @Component({
   selector: 'app-login',
@@ -9,19 +9,21 @@ import { HomePage } from '../home/home.page';
 })
 export class LoginPage {
   usuario: string = '';
-  user: string | null = null;
   contrasena: string = '';
 
-  constructor(private navCtrl: NavController) {}
+  constructor(
+    private navCtrl: NavController,
+    private SharedService: SharedService
+  ) {}
 
   agregarDatos() {
     if (this.usuario.length >= 3 && this.usuario.length <= 8 && /^\d{4}$/.test(this.contrasena)) {
-      HomePage.usuario = this.usuario;
+      const usu = (document.querySelector('input[name="User"]') as HTMLInputElement).value;
+      this.SharedService.setUsername(usu);
+
       this.navCtrl.navigateForward('/home');
     }
-    else {alert}
   }
-  reestablecer(){
-    
-  }
+
+
 }
