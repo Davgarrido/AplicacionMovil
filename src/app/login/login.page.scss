@@ -8,3 +8,13 @@ ion-title .custom-subtitle {
   font-size: 1.2rem; /* Tamaño para el subtítulo */
   color: #ddd5d5; /* Color de subtítulo personalizado */
 }
+
+
+/* Animacion del boton "olvido su contraseña" */
+.animated-button {
+  transition: transform 0.2s ease-in-out;
+}
+
+.animated-button:hover {
+  transform: scale(1.2);
+}

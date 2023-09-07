@@ -2,7 +2,7 @@
 <ion-card>
   <ion-card-header>
    <ion-card-title>
-    <h1 class="custom-title">Te llevoApp</h1>
+    <h1 #titulo class="custom-title">Te llevoApp</h1>
     <p class="custom-subtitle">Inicio de Sesion</p>
   </ion-card-title>
   </ion-card-header>
@@ -17,7 +17,7 @@
     </ion-item>
     <ion-button (click)="agregarDatos()">Ingresar</ion-button>
     <br><br/>
-    <ion-button [routerLink]="['/reestablecer']">Olvido su Contraseña?</ion-button>
+    <ion-button class="animated-button" [routerLink]="['/reestablecer']">Olvido su Contraseña?</ion-button>
   </ion-card-content>
 </ion-card>
 

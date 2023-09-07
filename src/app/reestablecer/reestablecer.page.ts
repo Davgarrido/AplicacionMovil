@@ -25,10 +25,9 @@ export class ReestablecerPage implements OnInit {
       header:"Cambio de contraseña",
       message:"Se ha cambiado la contraseña exitosamente",
       buttons:[{
-        text: 'Siguiente',
+        text: 'Aceptar',
         handler: () => {
-          // Redirige al usuario a la página HomePage
-          this.navCtrl.navigateForward('/home'); // Asegúrate de que '/home' sea la URL correcta para tu página de inicio
+          this.navCtrl.navigateForward('/login');
         }
       }
     ],
