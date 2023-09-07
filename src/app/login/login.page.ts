@@ -31,16 +31,16 @@ export class LoginPage {
     .duration(2500)
     .iterations(Infinity)
     .keyframes([
-      {offset: 0, transform: 'translateX(-50px)', opacity:0.2},
-      {offset: 0.5, transform: 'translateX(150px)', opacity:2},
-      {offset: 1, transform: 'translateX(150px)', opacity:0.2},
+      {offset: 0.5, transform: 'translateX(-10px)', opacity:0.2},
+      {offset: 0.5, transform: 'translateX(90px)', opacity:2},
+      {offset: 1, transform: 'translateX(0px)', opacity:0.2},
     ]);
     this.animation.play();
 
 
     setTimeout(() => {
       this.animation.stop();
-    }, 4500);
+    }, 4900);
   }
 
 
