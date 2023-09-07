@@ -1,12 +1,15 @@
-<ion-content class="ion-text-center ion-align-items-center">
-  <ion-card>
-    <ion-card-header>
-      <h2>Información Adicionales</h2>
-      <ion-toolbar id="username">
-        <ion-label>Bienvenido {{usuario}}</ion-label>
-      </ion-toolbar>
-    </ion-card-header>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Bienvenido {{ username }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
+
+
+<ion-content [fullscreen]="true"  class="ion-text-center ion-align-items-center">
+  <ion-card>
     <ion-card-content class="ion-label ion-align-items-center">
       <ion-item>
         <ion-label position="floating">Nombre</ion-label>
@@ -27,9 +30,9 @@
     </ion-card-content>
   </ion-card>
   
-  <div class="ion-text-center"> <!-- Agregamos un contenedor centrado -->
+  <div class="ion-text-center"> 
     <ion-button (click)="mostrarInformacion()">Mostrar</ion-button>
     <ion-button (click)="limpiarCampos()">Limpiar</ion-button>
-    <ion-button [routerLink]="['/login']">Volver al inicio</ion-button>
+    <ion-button [routerLink]="['/login']">cerrar sesion</ion-button>
   </div>
 </ion-content>

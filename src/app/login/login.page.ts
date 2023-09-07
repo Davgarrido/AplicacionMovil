@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { HomePage } from '../home/home.page';
+import { SharedService } from './../../services/shared.service';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { AnimationController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -8,20 +8,50 @@ import { HomePage } from '../home/home.page';
   styleUrls: ['login.page.scss'],
 })
 export class LoginPage {
+  @ViewChild('titulo', { read: ElementRef }) titulo: ElementRef;
+
   usuario: string = '';
-  user: string | null = null;
   contrasena: string = '';
 
-  constructor(private navCtrl: NavController) {}
+  animation : any;
+  constructor(
+    private navCtrl: NavController,
+    private SharedService: SharedService,
+    private animationCtrl: AnimationController
+  ) 
+  {
+    this.titulo = ElementRef.prototype as any;
+    this.animation = Animation.prototype as any;
+
+  }
+  ngAfterViewInit() {
+    this.animation = this.animationCtrl
+    .create()
+    .addElement(this.titulo.nativeElement)
+    .duration(2500)
+    .iterations(Infinity)
+    .keyframes([
+      {offset: 0.5, transform: 'translateX(-10px)', opacity:0.2},
+      {offset: 0.5, transform: 'translateX(90px)', opacity:2},
+      {offset: 1, transform: 'translateX(0px)', opacity:0.2},
+    ]);
+    this.animation.play();
+
+
+    setTimeout(() => {
+      this.animation.stop();
+    }, 4900);
+  }
+
 
   agregarDatos() {
     if (this.usuario.length >= 3 && this.usuario.length <= 8 && /^\d{4}$/.test(this.contrasena)) {
-      HomePage.usuario = this.usuario;
+      const usu = (document.querySelector('input[name="User"]') as HTMLInputElement).value;
+      this.SharedService.setUsername(usu);
+
       this.navCtrl.navigateForward('/home');
     }
-    else {alert}
   }
-  reestablecer(){
-    
-  }
+
+
 }

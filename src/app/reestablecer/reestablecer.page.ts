@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
+
 
 @Component({  
   selector: 'app-reestablecer',
@@ -13,13 +15,23 @@ export class ReestablecerPage implements OnInit {
   Confirma_nueva_contrasena: string = '';
   
   constructor(
-    public alertController:AlertController) {}
+    public alertController:AlertController,
+    public navCtrl: NavController,
+
+    ) {}
   
     async Cambio_contrasena(){
     const alert=await this.alertController.create({
       header:"Cambio de contraseña",
       message:"Se ha cambiado la contraseña exitosamente",
-      buttons:["OK"],
+      buttons:[{
+        text: 'Aceptar',
+        handler: () => {
+          this.navCtrl.navigateForward('/login');
+        }
+      }
+    ],
+
     });
     await alert.present()
   let result=await alert.onDidDismiss();
