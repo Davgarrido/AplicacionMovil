@@ -1,31 +1,20 @@
-ion-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+ion-title .custom-title {
+  font-size: 2.5rem; /* Tamaño grande para el título */
+  font-weight: bold;
+  margin-bottom: 0.5rem; /* Agrega un pequeño espacio entre el título y el subtítulo */
+}
 
-  .custom-container {
-    max-width: 400px; 
-    padding: 20px;
-    text-align: center;
-  }
-
-  ion-title .custom-title {
-    font-size: 2.5rem; 
-    font-weight: bold;
-    margin-bottom: 0.5rem; 
-
-    ion-title .custom-subtitle {
-      font-size: 1.2rem; 
-      color: #ddd5d5; 
-    }
+ion-title .custom-subtitle {
+  font-size: 1.2rem; /* Tamaño para el subtítulo */
+  color: #ddd5d5; /* Color de subtítulo personalizado */
 }
 
 
+/* Animacion del boton "olvido su contraseña" */
+.animated-button {
+  transition: transform 0.2s ease-in-out;
+}
 
-
-
-  }
-  
-  
+.animated-button:hover {
+  transform: scale(1.2);
+}
