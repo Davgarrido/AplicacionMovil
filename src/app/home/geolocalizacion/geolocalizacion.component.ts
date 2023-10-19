@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-geolocalizacion',
   templateUrl: './geolocalizacion.component.html',
@@ -12,3 +13,5 @@ export class GeolocalizacionComponent  implements OnInit {
   ngOnInit() {}
 
 }
+
+
