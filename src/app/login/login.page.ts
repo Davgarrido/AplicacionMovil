@@ -1,28 +1,99 @@
-import { SharedService } from './../../services/shared.service';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit,ElementRef, ViewChild  } from '@angular/core';
+import { Router, NavigationExtras } from '@angular/router';
+import { ToastController } from '@ionic/angular';
+import { AutenticacionService } from '../autenticacion.service';
 import { AnimationController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
-  templateUrl: 'login.page.html',
-  styleUrls: ['login.page.scss'],
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
 })
-export class LoginPage {
+
+export class LoginPage implements OnInit {
   @ViewChild('titulo', { read: ElementRef }) titulo: ElementRef;
 
-  usuario: string = '';
-  contrasena: string = '';
+  user={
+    usuario:"",
+    password:""
+  }
+  
 
-  animation : any;
+  field:string="";
+  animation: any;
+
   constructor(
-    private navCtrl: NavController,
-    private SharedService: SharedService,
+    private router: Router,
+    public toastController: ToastController, 
+    private auth: AutenticacionService,
     private animationCtrl: AnimationController
-  ) 
-  {
-    this.titulo = ElementRef.prototype as any;
-    this.animation = Animation.prototype as any;
+    ) { 
 
+      this.titulo = ElementRef.prototype as any;
+      this.animation = Animation.prototype as any;
+    }
+
+  ngOnInit() {
+  }
+
+  ingresar(){
+    
+    try{
+      if(this.validateModel(this.user)){
+        let navigationExtras: NavigationExtras = {
+          state: {
+            user: this.user
+          }
+        };
+        this.auth.login(this.user.usuario,this.user.password);
+        this.router.navigate(['/home'],navigationExtras);
+      }
+      else{
+        this.presentToast(this.field);
+      }
+      
+    }
+    catch(error){
+      
+      this.router.navigate(['/login']);
+    }
+    
+  }
+
+  validateModel(model:any){
+    for (var [key, value] of Object.entries(model)) {
+      if (value=="") {
+        this.field="Falta : "+key;
+        return false;
+      }
+    }
+    
+    var password = model.password;
+    const regex = /^[0-9]*$/;
+    const onlyNumbers = regex.test(password); // true
+    if(!onlyNumbers){
+      this.field = "Password invalida";
+      return false;
+    }
+    else if(model.usuario.length < 3 || model.usuario.length > 8){
+      this.field = "Usuario invalido";
+      return false;
+    }
+    else if(model.password.length != 4){
+      this.field = "Password invalida";
+      return false;
+    }
+    return true;
+  }
+
+  async presentToast(message:string, duration?:number){
+    const toast = await this.toastController.create(
+      {
+        message:message,
+        duration:duration?duration:2000
+      }
+    );
+    toast.present();
   }
   ngAfterViewInit() {
     this.animation = this.animationCtrl
@@ -42,16 +113,5 @@ export class LoginPage {
       this.animation.stop();
     }, 4900);
   }
-
-
-  agregarDatos() {
-    if (this.usuario.length >= 3 && this.usuario.length <= 8 && /^\d{4}$/.test(this.contrasena)) {
-      const usu = (document.querySelector('input[name="User"]') as HTMLInputElement).value;
-      this.SharedService.setUsername(usu);
-
-      this.navCtrl.navigateForward('/home');
-    }
-  }
-
 
 }

@@ -1,24 +1,27 @@
 <ion-content class="ion-text-center ion-align-items-center">
-<ion-card>
-  <ion-card-header>
-   <ion-card-title>
-    <h1 #titulo class="custom-title">Te llevoApp</h1>
-    <p class="custom-subtitle">Inicio de Sesion</p>
-  </ion-card-title>
-  </ion-card-header>
-  <ion-card-content class="ion-label ion-align-items-center">
-    <ion-item>
-      <ion-label position="floating">Usuario (Max 8 caracteres)</ion-label>
-      <ion-input id="usuario" [(ngModel)]="usuario" name="User" type="text" maxlength="8" minlength="3"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Pin de 4 digitos</ion-label>
-      <ion-input [(ngModel)]="contrasena" type="password" maxlength="4"></ion-input>
-    </ion-item>
-    <ion-button (click)="agregarDatos()">Ingresar</ion-button>
-    <br><br/>
-    <ion-button class="animated-button" [routerLink]="['/reestablecer']">Olvido su Contraseña?</ion-button>
-  </ion-card-content>
-</ion-card>
-
-</ion-content>
+  <ion-card>
+    <ion-card-header>
+     <ion-card-title>
+      <h1 #titulo class="custom-title">Te llevoApp</h1>
+      <p class="custom-subtitle">Inicio de Sesion</p>
+    </ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="ion-label ion-align-items-center">
+      <ion-item>
+        <ion-input labelPlacement="floating" value="" minlength="3" maxlength="8" required [(ngModel)]="user.usuario">
+          <div slot="label">Usuario <ion-text color="danger">*</ion-text></div>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input labelPlacement="floating" value="" minlength="4" maxlength="4" required inputmode="numeric" type="password" [(ngModel)]="user.password">
+          <div slot="label">Password <ion-text color="danger">*</ion-text></div>
+        </ion-input>  
+      </ion-item>
+      <br><br/>
+       <ion-button (click)="ingresar()">Ingresar</ion-button>
+      <br><br/>
+      <ion-button class="animated-button" [routerLink]="['/reestablecer']">Olvido su Contraseña?</ion-button>
+    </ion-card-content>
+  </ion-card>
+  
+  </ion-content>

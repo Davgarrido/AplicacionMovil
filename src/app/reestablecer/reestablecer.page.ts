@@ -9,10 +9,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./reestablecer.page.scss'],  
 })
 export class ReestablecerPage implements OnInit {
-  static Usuario: string = '';
-  usuario: string = '';
-  Nueva_Contrasena: string = '';
-  Confirma_nueva_contrasena: string = '';
+  Correo: string = '';
   
   constructor(
     public alertController:AlertController,
@@ -23,7 +20,7 @@ export class ReestablecerPage implements OnInit {
     async Cambio_contrasena(){
     const alert=await this.alertController.create({
       header:"Cambio de contraseña",
-      message:"Se ha cambiado la contraseña exitosamente",
+      message:"Se ha mandado un enlace a su correo para restablecer",
       buttons:[{
         text: 'Aceptar',
         handler: () => {
