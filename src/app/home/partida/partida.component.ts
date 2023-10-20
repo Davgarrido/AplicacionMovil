@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AlertController, AnimationController, IonicModule } from '@ionic/angular';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import {CommonModule} from '@angular/common';
 
 @Component({
@@ -22,7 +22,6 @@ export class PartidaComponent {
 
   constructor(
     private animationCtrl: AnimationController,
-    private activeroute: ActivatedRoute,
     private router: Router,
     public alertController: AlertController) 
     

@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { NotFoundPage } from './not-found/not-found.page';
+import { FirstGuardGuard } from './first-guard.guard';
 
 const routes: Routes = [
   {
     path: 'home',
+    canActivate: [FirstGuardGuard],
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
@@ -16,6 +17,11 @@ const routes: Routes = [
     path: 'not-found',
     loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule)
   },
+  {
+    path: '**',
+    redirectTo: '/not-found',
+    pathMatch: 'full',
+  },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)

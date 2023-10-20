@@ -8,10 +8,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HomePage {
   data: any;
-  selectedSegment: string = 'Partida';
+  selectedSegment: string = 'partida';
 
   constructor(private router: Router) {
-    this.router.navigate(['home/Partida'])
+    this.router.navigate(['home/partida'])
   }
 
   segmentChanged(event : any){
