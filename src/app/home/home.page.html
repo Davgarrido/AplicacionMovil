@@ -1,38 +1,24 @@
-<ion-header>
+<ion-header [translucent]="false">
   <ion-toolbar>
     <ion-title>
-      Bienvenido {{ username }}
+      TellevoApp
     </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment value="partida" (ionChange)="segmentChanged($event)">
+      <ion-segment-button  value="partida">
+        <ion-icon name="home"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="geolocalizacion">
+        <ion-icon name="map"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="configuracion">
+        <ion-icon name="settings"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
 
-
-
-<ion-content [fullscreen]="true"  class="ion-text-center ion-align-items-center">
-  <ion-card>
-    <ion-card-content class="ion-label ion-align-items-center">
-      <ion-item>
-        <ion-label position="floating">Nombre</ion-label>
-        <ion-input [(ngModel)]="nombre"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Apellido</ion-label>
-        <ion-input [(ngModel)]="apellido"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Nivel de Educación</ion-label>
-        <ion-input [(ngModel)]="nivelEducacion"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label >Fecha de Nacimiento</ion-label>
-        <ion-input [(ngModel)]="fechaNacimiento" type="date"></ion-input>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
-  
-  <div class="ion-text-center"> 
-    <ion-button (click)="mostrarInformacion()">Mostrar</ion-button>
-    <ion-button (click)="limpiarCampos()">Limpiar</ion-button>
-    <ion-button [routerLink]="['/login']">cerrar sesion</ion-button>
-  </div>
+<ion-content>
+  <ion-router-outlet></ion-router-outlet>
 </ion-content>
