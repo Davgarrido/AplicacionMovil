@@ -6,12 +6,21 @@ const routes: Routes = [
   {
     path: 'home',
     canActivate: [FirstGuardGuard],
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
     path: '',
     redirectTo: 'login',
+    redirectTo: 'login',
     pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
+  },
+  {
+    path: 'reestablecer',
+    loadChildren: () => import('./reestablecer/reestablecer.module').then(m => m.ReestablecerPageModule)
   },
   {
     path: 'not-found',
@@ -30,6 +39,7 @@ const routes: Routes = [
     path: 'reestablecer',
     loadChildren: () => import('./reestablecer/reestablecer.module').then( m => m.ReestablecerPageModule)
   },
+
 ];
 
 @NgModule({
