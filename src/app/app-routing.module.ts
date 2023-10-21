@@ -25,19 +25,11 @@ const routes: Routes = [
     path: 'not-found',
     loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule)
   },
-//   {
-//     path: '**',
-//     redirectTo: '/not-found',
-//    pathMatch: 'full',
-//   },
-  {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },
-  {
-    path: 'reestablecer',
-    loadChildren: () => import('./reestablecer/reestablecer.module').then( m => m.ReestablecerPageModule)
-  },
+   {
+     path: '**',
+     redirectTo: '/not-found',
+    pathMatch: 'full',
+   },
 
 ];
 
