@@ -10,18 +10,18 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'Login',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
     path: 'not-found',
     loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule)
   },
-  {
-    path: '**',
-    redirectTo: '/not-found',
-    pathMatch: 'full',
-  },
+//   {
+//     path: '**',
+//     redirectTo: '/not-found',
+//    pathMatch: 'full',
+//   },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)

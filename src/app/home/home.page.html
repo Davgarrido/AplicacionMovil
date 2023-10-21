@@ -6,10 +6,10 @@
   </ion-toolbar>
   <ion-toolbar>
     <ion-segment value="partida" (ionChange)="segmentChanged($event)">
-      <ion-segment-button  value="partida">
+      <ion-segment-button value="partida">
         <ion-icon name="home"></ion-icon>
       </ion-segment-button>
-      <ion-segment-button value="geolocalizacion">
+      <ion-segment-button value="map">
         <ion-icon name="map"></ion-icon>
       </ion-segment-button>
       <ion-segment-button value="configuracion">
@@ -22,3 +22,10 @@
 <ion-content>
   <ion-router-outlet></ion-router-outlet>
 </ion-content>
+
+
+<!-- en caso de que deje de funcionar el mapa
+  <ion-content>
+<app-map></app-map>
+</ion-content> 
+-->
