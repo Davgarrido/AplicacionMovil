@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { PartidaComponent } from './partida.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { LoginPage } from 'src/app/login/login.page';
 
 describe('PartidaComponent', () => {
   let component: PartidaComponent;
@@ -9,8 +11,7 @@ describe('PartidaComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PartidaComponent ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot(),RouterTestingModule.withRoutes([{path:'login',component:LoginPage}])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(PartidaComponent);
