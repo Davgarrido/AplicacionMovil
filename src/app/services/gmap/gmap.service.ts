@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class GmapService {
       const script = document.createElement('script');
       script.src =
         'https://maps.googleapis.com/maps/api/js?key=' +
-        environment.googleMapsApiKey + '&callback=Function.prototype';
+        environment.GoogleApiKey+ '&callback=Function.prototype';
       script.async = true;
       script.defer = true;
       document.body.appendChild(script);
