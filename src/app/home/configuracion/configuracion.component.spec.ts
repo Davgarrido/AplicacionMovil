@@ -2,17 +2,18 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { ConfiguracionComponent } from './configuracion.component';
-import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+
 
 describe('ConfiguracionComponent', () => {
   let component: ConfiguracionComponent;
   let fixture: ComponentFixture<ConfiguracionComponent>;
 
   beforeEach(waitForAsync(() => {
-    /*TestBed.configureTestingModule({
-      declarations: [ ConfiguracionComponent ],
-      imports: [IonicModule.forRoot(),RouterModule]
-    }).compileComponents();*/
+    TestBed.configureTestingModule({
+      imports: [IonicModule.forRoot(),RouterTestingModule]
+    }).compileComponents();
+
 
     fixture = TestBed.createComponent(ConfiguracionComponent);
     component = fixture.componentInstance;
